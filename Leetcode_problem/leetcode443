@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int compress(vector<char>& chars) {
+        int ind=0;
+        for(int i=0;i<chars.size();){
+            int count=0;
+            char val=chars[i];
+            while(i<chars.size() && val==chars[i] ){
+                i++;
+                count++;
+            }
+            chars[ind++]=val;
+
+            if(count>1){
+                for(char c:to_string(count)){
+                    chars[ind++]=c;
+                }
+            }
+        }
+        return ind--;
+        
+    }
+};
